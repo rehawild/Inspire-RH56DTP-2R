@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# Run the CLI from a checkout without installing: ./rh56 status
+set -euo pipefail
+repo="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
+PYTHONPATH="$repo/src${PYTHONPATH:+:$PYTHONPATH}" exec /usr/bin/python3 -m inspire_rh56dtp_2r "$@"

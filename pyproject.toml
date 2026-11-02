@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "inspire-rh56dtp-2r"
+version = "0.1.0"
+description = "Control and test tools for the Inspire RH56DTP-2R tactile hand over Modbus TCP"
+requires-python = ">=3.8"
+dependencies = []
+
+[project.optional-dependencies]
+test = ["pytest"]
+
+[project.scripts]
+rh56 = "inspire_rh56dtp_2r.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = [
+    "hardware: talks to a real hand (set RH56_IP to enable)",
+    "motion: moves the real hand (also set RH56_ALLOW_MOTION=1)",
+]
